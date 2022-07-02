@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <nav class="aw-menu">
+        <h:form>
+            <p:menu toggleable="true" style="width: 98%; margin-left: 3px; ">
+                <p:menuitem value="Home" outcome="home" icon="ui-icon-home" />
+                <p:menuitem value="Usuário" outcome="usuario" icon="ui-icon-contact" />
+                <p:submenu label="Cadastro">
+                    <p:menuitem value="Empreendimento" outcome="empreendimento" icon="ui-icon-image" />
+                    <p:menuitem value="Categoria" outcome="categoria" icon="ui-icon-suitcase"/>
+                    <p:menuitem value="Item" outcome="item" icon="ui-icon-tag"/>
+                </p:submenu>
+                <p:submenu label="Inspeção">
+                    <p:menuitem value="Novo" outcome="novo" icon="ui-icon-check"/>
+                    <p:menuitem value="Relatório" outcome="relatorio" icon="ui-icon-image"/>
+                </p:submenu>
+                <p:menuitem value="Sair" url="#" icon="ui-icon-close"/>
+            </p:menu>
+
+        </h:form>
+    </nav>
+
+</ui:composition>

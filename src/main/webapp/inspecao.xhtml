@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <f:facet name="first">
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </f:facet>
+        <ui:param name="path" value="#{request.getContextPath()}" />
+        <link rel="shortcut icon" type="image/png" href="#{path}/resources/senac/images/icon.png" />
+        <title>CheckApp Acessibilidade</title>
+    </h:head>
+
+    <h:body>
+
+        <header class="aw-topbar" style="margin-bottom: 5px;">       
+            <a href="#" class="aw-toggle js-toggle" ><i class="fa fa-bars"></i></a>
+        </header>
+
+        <section class="aw-content  js-content">           
+
+            <p:panel header="Relatório de Inspeção" id="teste">
+
+                <h2>#{relatorioC.inspecaoSelecionada.empreendimento.nome}</h2>
+                
+                <p><b>Responsável técnico:</b> #{relatorioC.inspecaoSelecionada.responsavelTecnico}</p>
+                
+                <p><b>Função:</b> #{relatorioC.inspecaoSelecionada.empreendimento.funcao}</p>
+
+                <p><b>Cidade:</b> #{relatorioC.inspecaoSelecionada.empreendimento.localidade}
+
+                    <b>Estado:</b> #{relatorioC.inspecaoSelecionada.empreendimento.uf}
+                </p>
+
+                <p><b>Logradouro:</b> #{relatorioC.inspecaoSelecionada.empreendimento.logradouro}
+
+                    <b>Número:</b> #{relatorioC.inspecaoSelecionada.empreendimento.numero}
+                </p>
+
+                <p><b>Data da vistoria: </b> 
+                    <h:outputText value="#{relatorioC.inspecaoSelecionada.dataEhora}">
+                        <f:convertDateTime pattern="dd/MM/yyyy 'às' HH:mm" timeZone="GMT-3" />
+                    </h:outputText>
+                </p>
+
+                <p><b>Observação:</b> #{relatorioC.inspecaoSelecionada.observacao}</p>
+
+                <p:dataTable id="avaliacoes" var="avaliacao" value="#{relatorioC.inspecaoSelecionada.avaliacoes}" >
+
+                    <p:column  headerText="Categoria" groupRow="true">
+                        <h:outputText style="vertical-align: middle; margin-left: .5rem"
+                                      value="#{avaliacao.item.categoria.nome}"/>
+                    </p:column>
+
+
+                    <!--                    <p:headerRow field="item.categoria.nome" expandable="true">
+                                            <p:column colspan="3">
+                                                <div class="p-d-inline-flex p-ai-center" style="vertical-align: middle">                                
+                                                    <h:outputText styleClass="p-ml-2" value="#{avaliacao.item.categoria.nome}"/>
+                                                </div>
+                                            </p:column>
+                                        </p:headerRow>-->
+
+                    <p:column headerText="Item" colspan="2">
+                        <h:outputText value="#{avaliacao.item.nome}" />
+                    </p:column>
+                    <p:column headerText="Resposta">
+                        <h:outputText
+                            value="#{avaliacao.resposta}">
+<!--                            tentei fazer para que quando não estivesse preenchido aparecesse: "item não preenchido"-->
+<!--                            <c:if test="$'#{avaliacao.resposta} == 'null'" >
+                              <h:outputText value="Item não preenchido" />
+                            </c:if>
+                            <c:if test="$'#{avaliacao.resposta} !== 'null'" >
+                              <h:outputText value="#{avaliacao.resposta}"  />
+                            </c:if>-->
+                        </h:outputText>
+                    </p:column>
+
+                </p:dataTable>
+
+            </p:panel>
+
+        </section>
+
+    </h:body>
+
+    <br/>
+    <br/>
+    <p:commandButton type="button" value="Imprimir"  icon="pi pi-print" styleClass="p-mr-2 p-mb-2">
+        <p:printer target= "teste" />
+    </p:commandButton>
+
+</html>

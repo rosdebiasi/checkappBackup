@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </f:facet>
+        <ui:param name="path" value="#{request.getContextPath()}" />
+        <link rel="shortcut icon" type="image/png" href="#{path}/resources/senac/images/icon.png" />
+        <title>CheckApp Acessibilidade</title>
+
+        <h:outputStylesheet library="senac" name="styles/custom.css" />
+        <h:outputStylesheet library="senac" name="styles/layout.css" />
+        <h:outputStylesheet library="senac" name="styles/components.css" />
+        <h:outputStylesheet library="css" name="styles/primeflex.min.css"  />
+
+        <!--<h:outputScript target="body" library="primefaces" name="jquery/jquery.js" />-->
+        <h:outputScript target="body" library="senac" name="javascripts/app.js" />
+    </h:head>
+
+    <h:body>
+
+        <header class="aw-topbar" style="margin-bottom: 5px;">
+            <h:graphicImage library="senac" name="images/logo_texto_2_redimensionado_1.png" />
+            
+<!--            <a href="#" class="aw-toggle js-toggle" ><i class="fa fa-bars"></i></a>-->
+
+<!--            <a href="#" class="aw-toggle  js-toggle">
+                <i class="pi pi-align-justify" style="color: white; size: 20px"> </i>
+            </a>-->
+
+<!--            <a href="#" class="aw-toggle  js-toggle">
+                <i class="pi pi-home" style="color: white; size: 20px" />
+                                <i class="fa  fa-bars"></i>           
+            </a>
+            <a href="#" class="aw-toggle  js-toggle">
+                <i class="pi pi-info-circle" style="color: white; size: 20px" />
+            </a>-->
+
+            <!--            <a href="#" class="aw-toggle  js-toggle">
+                        <h:form id="menuForm">
+                                <p:menubar style="background-color: #84509c; color: white; margin-right:10px; border: none">
+                                    <p:submenu label="Entrar " style="background-color: white; border-radius: 10%" >
+                                        <p:menuitem value="Login" url="#" icon="pi pi-fw pi-sign-in" />
+                                        <p:menuitem value="Logout" icon="pi pi-fw pi-sign-in" 
+                                                    ajax="false" process="@all" action="#"/>
+                                        <p:menuitem rendered="#" url="#" value="Perfil" icon="pi pi-fw pi-sign-in"  
+                                                    actionListener="#"  ajax="false" process="@all" />
+            
+                                    </p:submenu>
+                                </p:menubar>
+                        </h:form>
+                         </a>-->
+            <!-- acrescentei a partir daqui teste - base site quiz
+            <div id="container_menu_header">
+
+                <a href="#">
+                    <i class="pi pi-home" style="color: white; size: 20px" />
+                </a>
+                <a href="#"> 
+                    <i class="pi pi-info-circle" style="color: white; size: 20px" />
+                </a>
+
+                <h:form id="menuForm">
+                    <p:menubar style="background-color: #84509c; color: white; margin-right:10px; border: none">
+                        <p:submenu label="Entrar " style="background-color: white; border-radius: 10%" >
+                            <p:menuitem value="Login" outcome="/login" icon="pi pi-fw pi-sign-in" />
+                            <p:menuitem value="Logout" icon="pi pi-fw pi-sign-in" 
+                                        ajax="false" process="@all" action="#"/>
+                            <p:menuitem rendered="#" outcome="/Perfil/perfil" value="Perfil" icon="pi pi-fw pi-sign-in"  
+                                        actionListener="#"  ajax="false" process="@all" />
+
+                        </p:submenu>
+                    </p:menubar>
+                </h:form>
+            </div>
+            término teste -->
+
+        </header>
+
+<!--        <aside class="aw-sidebar  js-sidebar">
+            <ui:include src="menu.xhtml" />
+        </aside>-->
+
+<!--        <section class="aw-content  js-content">-->
+
+<!--            <p:messages id="messages" showSummary="true" closable="true">
+                <p:autoUpdate/>
+            </p:messages>-->
+            
+            <ui:insert name="content" />
+<!--        </section>-->
+
+    </h:body>
+
+</html>

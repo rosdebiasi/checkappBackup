@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/layout_sem_menu.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <ui:define name="content">
+
+        <p:panel id="painel_conteudo" header="ZRoutes" >
+            <h:form id="corpo-login">
+                <p:messages id="messages" showDetail="true" closable="true" showSummary="false">
+                    <p:autoUpdate />
+                </p:messages>
+                <p:panelGrid columns="2"
+                             columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-10"
+                             contentStyleClass="ui-fluid">
+                    <p:outputLabel for="login" value="LOGIN: " />
+                    <p:inputText id="login" value="#{loginC.campoLogin}" required="true" 
+                                 requiredMessage="campo login é obrigatorio"/>
+
+                    <p:outputLabel for="senha" value="SENHA: " />
+                    <p:inputText id="senha" value="#{loginC.campoSenha}" required="true" 
+                                 requiredMessage="campo senha é obrigatorio"/>
+
+                    <p:commandButton value="LOGIN" 
+                                     actionListener="#{loginC.logar()}"
+                                     update="@all" />
+                    <p:linkButton outcome="#" value="" style="margin-right:20px;">
+                    </p:linkButton>
+                </p:panelGrid>
+
+                <!--                <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+                                <div class="card">
+                                    <p:gmap center="41.381542, 2.122893" zoom="15" type="HYBRID" style="width:100%;height:400px"/>
+                                </div>-->
+            </h:form>
+
+        </p:panel>
+
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,103 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/layout.xhtml">
+
+    <ui:define name="content">
+
+        <p:panel id="painel_conteudo" header="Home">
+            <h:form>
+                <div class="card">
+                    Seja bem vindo(a)! Selecione uma das opções no menu lateral.
+                </div>
+            </h:form>
+        </p:panel>
+
+        <br/>
+        <br/>
+
+        <p:panel id="painel_conteudo4" header="Dicas">
+            <h:form>
+                <div class="card">
+                    1. Para fazer uma Inspeção é obrigatório ter um Empreendimento cadastrado.
+                </div>
+                <br/>
+                <div class="card">
+                    2. Já há Categorias (ex: circulação, rampa) e Itens relacionados a essa (ex: Circulação. Item 1: circulação com 1.50m) previamente cadastrados para já iniciar uma Inspeção. 
+                </div>
+                <br/>
+                <div class="card">
+                    3. Caso queira cadastrar mais um Item na Inspeção é necessário: 1) ir em Cadastro -> Categoria; e 2) ir em Cadastro -> Item.
+                </div>
+                <br/>
+                <div class="card">
+                    4. Caso queira cadastrar mais um Item na Inspeção com uma Categoria já existente é necessário: 1) ir em Cadastro -> Item.
+                </div>
+            </h:form>
+        </p:panel>
+
+        <br/>
+        <br/>
+
+        <p:panel id="agrupamento">
+
+            <p:panel id="painel_conteudo2" header="Total de inspeções realizadas: #{relatorioC.numeroInspecoes}">
+            </p:panel>
+
+            <br/>
+
+            <p:panel id="painel_conteudo3" header="Últimas inspeções">
+                <h:form>
+                    <div class="card">
+
+                        <p:dataTable id="tabela" var="inspecao" value="${relatorioC.inspecoes}" rows="10"
+                                     paginator="true" paginatorPosition="bottom"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                                     rowsPerPageTemplate="5,10,15,{ShowAll|'Todos'}">
+
+                            <f:facet name="header">
+                                <h:outputText value="Inspeção"/>
+                            </f:facet>
+                            <p:column headerText="Nome Empreendimento" style="text-align: center">
+                                <h:outputText value="#{inspecao.nome}" />
+                            </p:column>
+                            <p:column headerText="Função" style="text-align: center">
+                                <h:outputText value="#{inspecao.empreendimento.funcao}" />
+                            </p:column>
+                            <p:column headerText="Data de Inspeção" style="text-align: center">
+                                <h:outputText value="#{inspecao.dataEhora}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy 'às' HH:mm:ss" timeZone="GMT-3"/>
+                                </h:outputText>
+                            </p:column>
+
+                            <p:column headerText="Ação" style="text-align: center">
+                                <!--                        <p:commandButton icon="pi pi-eye" title="Selecionar" process="@this" 
+                                                                         actionListener="#{relatorioC.setInspecaoSelecionada(inspecao)}" update="tabela_inspecao"
+                                                                         style="margin-right: 12px" styleClass="rounded-button ui-button-outlined" />-->
+
+                                <!--                                <h:commandLink
+                                                                    actionListener="#{relatorioC.setInspecaoSelecionada(inspecao)}"
+                                                                    action="inspecao.html" target="_blank"><i class="pi pi-eye" styleClass="p-d-block p-mx-auto" title="Visualizar/imprimir" ></i>
+                                                                </h:commandLink>-->
+
+                                <h:commandLink
+                                    actionListener="#{relatorioC.setInspecaoSelecionada(inspecao)}"
+                                    action="inspecao.html" target="_blank"> <i class="pi pi-eye" title="Visualizar/Imprimir" ></i>
+                                </h:commandLink>
+
+                            </p:column>                       
+                        </p:dataTable>
+
+                    </div>
+                </h:form>
+            </p:panel>
+            <br/>
+
+        </p:panel>
+
+    </ui:define>
+
+</ui:composition>
