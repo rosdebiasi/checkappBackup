@@ -30,6 +30,7 @@ public class Inspecao implements Serializable {
 
     private String observacao;
     
+    @Column(nullable = false)
     private String responsavelTecnico;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")

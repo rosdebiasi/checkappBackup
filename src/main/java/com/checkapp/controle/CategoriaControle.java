@@ -46,7 +46,7 @@ public class CategoriaControle implements Serializable {
 
     @PostConstruct
     public void iniciar() {
-        modelCategorias = new ListDataModel<>(categoriaRepositorio.findAll());
+        //modelCategorias = new ListDataModel<>(categoriaRepositorio.findAll());
     }
 
     public List<Categoria> pesquisarTodo() {
@@ -110,9 +110,11 @@ public class CategoriaControle implements Serializable {
     }
 
     public void onTabChange(TabChangeEvent event) {
+        //modelCategorias = new ListDataModel<>(categoriaRepositorio.findAll());
     }
 
     public void onTabClose(TabCloseEvent event) {
+        //modelCategorias = new ListDataModel<>(categoriaRepositorio.findAll());
     }
 
 //    getters e setters

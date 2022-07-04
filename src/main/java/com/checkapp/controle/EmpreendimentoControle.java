@@ -21,6 +21,7 @@ import org.primefaces.event.TabChangeEvent;
 import org.primefaces.event.TabCloseEvent;
 import com.checkapp.dao.EmpreendimentoRepositorio;
 import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -30,6 +31,7 @@ import org.springframework.stereotype.Component;
  */
 @Component(value = "empreendimentoC")
 @Scope("view")
+//@ViewScoped
 public class EmpreendimentoControle implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,7 +45,7 @@ public class EmpreendimentoControle implements Serializable {
 
     @PostConstruct
     public void iniciar() {
-        modelLugares = new ListDataModel<>(localRepositorio.findAll());
+        //modelLugares = new ListDataModel<>(localRepositorio.findAll());
     }
 
     public List<Empreendimento> pesquisarTodo() {
@@ -102,9 +104,11 @@ public class EmpreendimentoControle implements Serializable {
     }
 
     public void onTabChange(TabChangeEvent event) {
+        //modelLugares = new ListDataModel<>(localRepositorio.findAll());
     }
 
     public void onTabClose(TabCloseEvent event) {
+        //modelLugares = new ListDataModel<>(localRepositorio.findAll());
     }
 
     public void buscarCep() {

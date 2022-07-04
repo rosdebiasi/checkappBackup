@@ -51,7 +51,7 @@
                                      columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2"
                                      contentStyleClass="ui-fluid">
                             <p:outputLabel for="categoria" value="Nome:" />
-                            <p:inputText id="categoria" value="#{categoriaC.categoria.nome}"  required="true" 
+                            <p:inputText id="categoria" value="#{categoriaC.categoria.nome}"  required="false" 
                                          requiredMessage="Nome é obrigatório" />
                             <p:commandButton value="Pesquisar" actionListener="#{categoriaC.pesquisarPorNome()}" update="tabela" />
                         </p:panelGrid>

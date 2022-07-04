@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>com.checkapp.checkapp</groupId>
-    <artifactId>CheckAppAcessibilidade_banco_dados_backup18</artifactId>
+    <artifactId>CheckApp</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -26,6 +26,22 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
         </dependency>
         <dependency>
             <groupId>com.sun.faces</groupId>
@@ -164,7 +180,12 @@
         </dependency>
 
         <!-- FIM PDF -->
-                    
+        <dependency>
+            <groupId>org.springframework.security.oauth.boot</groupId>
+            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+            <version>2.6.5</version>
+            <type>jar</type>
+        </dependency>
     </dependencies
     >
     <!-- PrimeFaces Repository -->
@@ -185,5 +206,5 @@
             </plugin>
         </plugins>
     </build>
-    <name>CheckAppAcessibilidade_banco_dados_backup18</name>
+    <name>CheckApp</name>
 </project>
